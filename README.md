@@ -11,5 +11,6 @@ Articles I'm writing
 | Title               | ID   | Topic       | Date                    |
 | ------------------- | ---- | ----------- | ----------------------- |
 | Crystal Caterpillar | `cc` | Probability | February 5, 2022 -> ... |
+| Aquatic Firefly     | `af` | Statistics  | February 6, 2022 -> ... |
 
 </details>

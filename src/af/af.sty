@@ -1,0 +1,122 @@
+% 🍎 Standard ams packages 🍏
+% \usepackage{amsmath,amssymb,amsthm,mathtools,enumitem,bm,mathrsfs}
+\usepackage{mathtools, amsthm, bm, amsmath}
+
+% Enable unicode
+% https://tex.stackexchange.com/a/34608
+\usepackage[utf8]{inputenc}
+
+% Centered `:=`
+% 🔗 https://tex.stackexchange.com/a/194353
+\newcommand{\defined}[0]{
+	\vcentcolon =
+}
+
+% 📷 Graphics 📷
+% 🔗 https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+% \usepackage{graphicx}
+
+% 📃 Lists 📃
+% Enables enumerated list with custom order preserving labels
+% \begin{enumerate}[label=(s\arabic*), series=name]\end{enumerate}
+% to label with (s1), (s2),...
+% labeling and continuation with same options by \begin{enumerate}[resume*]
+\usepackage{enumitem}
+
+% 🐌 Other packages 🐌
+\usepackage{fontawesome} 
+% 🔗 http://mirrors.ibiblio.org/CTAN/fonts/fontawesome/doc/fontawesome.pdf
+% \usepackage{relsize}
+%\usepackage{showkeys} % Display refernce keys for editing
+
+% 🌈 Colors 🌈
+\usepackage[]{xcolor}
+
+% Color source:
+% 🔗 https://en.wikipedia.org/wiki/Traditional_colors_of_Japan
+% Save previous color:
+% 🔗 https://tex.stackexchange.com/a/218091
+
+% Define colors
+\definecolor{internallinkcolor}{HTML}{1F4788} % 瑠璃色 (Lapis lazuli)
+\definecolor{externallinkcolor}{HTML}{C3272B} % 赤紅 (Pure crimson)
+\definecolor{citecolor}{HTML}{006442} % 青竹色 (Green bamboo)
+
+\definecolor{subtitle}{HTML}{763568} % 菖蒲色 (Iris)
+
+% 🔗 Link options 🔗
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=externallinkcolor,
+	linkcolor=., % "current" color, from xcolor %linkcolor=internallinkcolor,
+	filecolor=externallinkcolor,
+	citecolor=citecolor,
+	breaklinks=true,
+}
+
+% Number equations by section
+% \setcounter{<countername>}{<value>}
+% Equation numbering color
+% 🔗 https://tex.stackexchange.com/a/292806
+% Requires mathtools package
+
+\numberwithin{equation}{section}
+
+% 🧠 Theorems 🧠
+% Theorem environments share the definition counter
+
+% 🎨 Theorem styles
+% Default theorem style arguments:
+% 🔗 https://tex.stackexchange.com/a/17555
+% Change theorem heading color:
+% 🔗 https://tex.stackexchange.com/questions/155516/changing-the-color-of-theorem-headings
+
+\newtheoremstyle{plainBreak}
+{\topsep}   % ABOVESPACE
+{\topsep}   % BELOWSPACE
+{\itshape}  % BODYFONT
+{0pt}       % INDENT (empty value is the same as 0pt)
+{\bfseries} % HEADFONT
+{}         % HEADPUNCT
+{\newline} % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+
+\newtheoremstyle{definitionBreak}
+{\topsep}   % ABOVESPACE
+{\topsep}   % BELOWSPACE
+{\normalfont}  % BODYFONT
+{0pt}       % INDENT (empty value is the same as 0pt)
+{\bfseries} % HEADFONT
+{}         % HEADPUNCT
+{\newline} % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+
+\newtheoremstyle{remarkBreak}
+{0.5\topsep}   % ABOVESPACE
+{0.5\topsep}   % BELOWSPACE
+{\normalfont}  % BODYFONT
+{0pt}       % INDENT (empty value is the same as 0pt)
+{\itshape} % HEADFONT
+{}         % HEADPUNCT
+{\newline} % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+
+% 🧠 Define theorems
+\theoremstyle{definitionBreak}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plainBreak}
+\newtheorem{theorem}[definition]{Theorem}
+
+\theoremstyle{remarkBreak}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+
+% Add line break to proof
+% 🔗 https://tex.stackexchange.com/a/85081
+\newenvironment{proofBreak}[1][\proofname]{%
+	\begin{proof}[#1]$ $\newline\nobreak\ignorespaces
+		}{%
+	\end{proof}
+	}
